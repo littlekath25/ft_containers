@@ -9,6 +9,7 @@ template <class T> class Stack
 {
     public:
         Stack();
+        ~Stack();
 
         void    push(T value);
         T       pop();
