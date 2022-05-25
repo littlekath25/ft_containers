@@ -15,17 +15,31 @@ template < class Key,                                     // map::key_type
 		template <class InputIterator>	map (InputIterator first, InputIterator last, const key_compare& comp = key_compare(), const allocator_type& alloc = allocator_type());
 		map (const map& x);
 
+		// destructor
 		~map();
 
-		map &operator=(const map &copy);
-        // operator[]
+		// operator
+		map 			&operator=(const map &copy);
+		mapped_type		&operator[] (const key_type& k);
 
 		// begin
+		iterator 		begin();
+		const_iterator 	begin() const;
+
 		// end
+		iterator 		end();
+		const_iterator 	end() const;
+
 		// rbegin
+		reverse_iterator 		rbegin();
+		const_reverse_iterator 	rbegin() const;
+
 		// rend
+		reverse_iterator 		rend();
+		const_reverse_iterator 	rend() const;
 		
 		// empty
+		
         // size
 		// max_size
 
