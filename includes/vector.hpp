@@ -1,9 +1,5 @@
 #pragma once
 
-#include <memory>
-
-class allocator;
-
 template < class T, class Alloc = allocator<T> > class vector
 {
 	private:

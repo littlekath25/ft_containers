@@ -1,11 +1,20 @@
 #pragma once
 
-class map
+
+template < class Key,                                     // map::key_type
+           class T,                                       // map::mapped_type
+           class Compare = less<Key>,                     // map::key_compare
+           class Alloc = allocator<pair<const Key,T> >    // map::allocator_type
+           > class map;
 {
     private:
 
 	public:
-		map();
+		// constructor
+		explicit 						map (const key_compare& comp = key_compare(), const allocator_type& alloc = allocator_type());
+		template <class InputIterator>	map (InputIterator first, InputIterator last, const key_compare& comp = key_compare(), const allocator_type& alloc = allocator_type());
+		map (const map& x);
+
 		~map();
 
 		map &operator=(const map &copy);
