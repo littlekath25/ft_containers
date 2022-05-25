@@ -82,10 +82,15 @@ template < class T, class Alloc = allocator<T> > class vector
 		// erase
 		iterator 							erase (iterator position);
 		iterator 							erase (iterator first, iterator last);
+
 		// swap
+		void 								swap (vector& x);
+
 		// clear
+		void 								clear();
 		
 		// get_allocator
+		allocator_type 						get_allocator() const;
 
 		vector &operator=(const vector &copy);
         // operator[]
