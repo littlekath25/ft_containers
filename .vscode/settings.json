@@ -29,6 +29,11 @@
         "ostream": "cpp",
         "sstream": "cpp",
         "streambuf": "cpp",
-        "tuple": "cpp"
+        "tuple": "cpp",
+        "complex": "cpp",
+        "memory_resource": "cpp",
+        "type_traits": "cpp",
+        "utility": "cpp",
+        "algorithm": "cpp"
     }
 }
