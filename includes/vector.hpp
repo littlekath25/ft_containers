@@ -45,18 +45,43 @@ template < class T, class Alloc = allocator<T> > class vector
 
 		// capacity
 		size_type 							capacity() const;
+
 		// empty
+		bool 								empty() const;
+
 		// reserve
+		void 								reserve (size_type n);
 
 		// at
+		reference 							at (size_type n);
+		const_reference 					at (size_type n) const;
+
 		// front
+		reference 							front();
+		const_reference 					front() const;
+
 		// back
+		reference 							back();
+		const_reference 					back() const;
 
 		// assign
+		template <class InputIterator> void	assign (InputIterator first, InputIterator last);	
+		void 								assign (size_type n, const value_type& val);
+
 		// push_back
+		void 								push_back (const value_type& val);
+
 		// pop_back
+		void 								pop_back();
+
 		// insert
+		iterator 							insert (iterator position, const value_type& val);
+    	void 								insert (iterator position, size_type n, const value_type& val);
+		template <class InputIterator> void insert (iterator position, InputIterator first, InputIterator last);
+
 		// erase
+		iterator 							erase (iterator position);
+		iterator 							erase (iterator first, iterator last);
 		// swap
 		// clear
 		
