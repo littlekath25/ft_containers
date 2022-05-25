@@ -9,30 +9,42 @@ template < class T, class Alloc = allocator<T> > class vector
 	private:
 	
 	public:
-		// Constructor
+		// constructor
 		explicit 							vector (const allocator_type& alloc = allocator_type());
 		explicit 							vector (size_type n, const value_type& val = value_type(), const allocator_type& alloc = allocator_type());
 		template <class InputIterator>		vector (InputIterator first, InputIterator last, const allocator_type& alloc = allocator_type());
 		void								vector (const vector& x);
 
-		// Destructor
+		// destructor
 		~vector();
 
-		// Begin
+		// begin
 		iterator 							begin();
 		const_iterator 						begin() const;
 
-		// End
+		// end
 		iterator 							end();
 		const_iterator 						end() const;
 
 		// rbegin
+		reverse_iterator 					rbegin();
+		const_reverse_iterator 				rbegin() const;
+
 		// rend
-		
+		reverse_iterator 					rend();
+		const_reverse_iterator 				rend() const;
+
 		// size
+		size_type 							size() const;
+
 		// max_size
+		size_type 							max_size() const;
+
 		// resize
+		void 								resize (size_type n, value_type val = value_type());
+
 		// capacity
+		size_type 							capacity() const;
 		// empty
 		// reserve
 
