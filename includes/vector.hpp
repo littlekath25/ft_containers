@@ -93,14 +93,13 @@ template < class T, class Alloc = allocator<T> > class vector
 		allocator_type 						get_allocator() const;
 
 		vector &operator=(const vector &copy);
-        // operator[]
-		// operator[]
-		// operator==
-		// operator!=
-		// operator<
-		// operator<=
-		// operator>
-		// operator>=
+        template <class T, class Alloc> bool operator== (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
+		template <class T, class Alloc> bool operator!= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
+		template <class T, class Alloc> bool operator<  (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
+		template <class T, class Alloc> bool operator<= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
+		template <class T, class Alloc> bool operator>  (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
+		template <class T, class Alloc> bool operator>= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
 
 		// swap
+		template <class T, class Alloc> void swap (vector<T,Alloc>& x, vector<T,Alloc>& y);
 };
