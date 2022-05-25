@@ -1,24 +1,14 @@
 #pragma once
+ 
+ template <class T, class Alloc = allocator<T> class vector
+ {
+	public:
+		vector();
+		~vector();
 
-# include <iostream>
-# include <cstdlib>
+		vector &operator=(const copy vector);
 
-#define SIZE 1000
+		
+	private:
 
-template <class T> class Stack 
-{
-    public:
-        Stack();
-        ~Stack();
-
-        void    push(T value);
-        T       pop();
-        T       top();
-
-        bool    empty();
-        int     size();
-
-    private:
-        int     _top;
-        T       _stack[SIZE];
-};
+ };
