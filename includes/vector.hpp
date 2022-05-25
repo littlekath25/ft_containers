@@ -2,16 +2,30 @@
 
 #include <memory>
 
-class vector
+class allocator;
+
+template < class T, class Alloc = allocator<T> > class vector
 {
 	private:
 	
 	public:
-		vector();
+		// Constructor
+		explicit 							vector (const allocator_type& alloc = allocator_type());
+		explicit 							vector (size_type n, const value_type& val = value_type(), const allocator_type& alloc = allocator_type());
+		template <class InputIterator>		vector (InputIterator first, InputIterator last, const allocator_type& alloc = allocator_type());
+		void								vector (const vector& x);
+
+		// Destructor
 		~vector();
 
-		// begin
-		// end
+		// Begin
+		iterator 							begin();
+		const_iterator 						begin() const;
+
+		// End
+		iterator 							end();
+		const_iterator 						end() const;
+
 		// rbegin
 		// rend
 		
