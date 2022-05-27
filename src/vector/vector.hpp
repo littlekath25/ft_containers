@@ -1,11 +1,22 @@
 #pragma once
 
+#include <memory>
+
 namespace ft
 {
-	template < class T, class Alloc = allocator<T> >
+	template < class T, class Alloc = std::allocator<T> >
 	class vector
 	{
 		public:
+			// member types
+			typedef T							value_type;
+			typedef Alloc						allocator_type;
+			typedef &value_type					reference;
+			typedef const &value_type			const_reference;
+			typedef *value_type					pointer;
+			typedef const *value_type			const_pointer;
+			typedef size_t						size_type;
+
 			// constructor
 			explicit 							vector (const allocator_type& alloc = allocator_type());
 			explicit 							vector (size_type n, const value_type& val = value_type(), const allocator_type& alloc = allocator_type());
@@ -99,5 +110,5 @@ namespace ft
 
 			// swap
 			template <class T, class Alloc> void swap (vector<T,Alloc>& x, vector<T,Alloc>& y);
-	}
+	};
 }
