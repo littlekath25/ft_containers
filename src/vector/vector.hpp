@@ -16,6 +16,8 @@ namespace ft
 			typedef *value_type					pointer;
 			typedef const *value_type			const_pointer;
 			typedef size_t						size_type;
+			typedef std::ptrdiff_t 				difference_type;
+			
 
 			// constructor
 			explicit 							vector (const allocator_type& alloc = allocator_type());
@@ -25,7 +27,7 @@ namespace ft
 
 			// destructor
 			~vector();
-
+	
 			// begin
 			iterator 							begin();
 			const_iterator 						begin() const;
