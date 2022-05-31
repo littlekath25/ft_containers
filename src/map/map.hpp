@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 namespace ft
 {
 	template < class Key,                                     // map::key_type
