@@ -22,13 +22,23 @@ namespace ft
 			// TODO iterators
 
 			// constructor
-			explicit 							vector (const allocator_type& alloc = allocator_type());
-			explicit 							vector (size_type n, const value_type& val = value_type(), const allocator_type& alloc = allocator_type());
+			explicit 							vector (const allocator_type& alloc = allocator_type()) 
+			: _array(0), _size(0), _capacity(0), _alloc(alloc);
+
+			explicit 							vector (size_type n, const value_type& val = value_type(), const allocator_type& alloc = allocator_type()) 
+			: _size(n), _capacity(n), _alloc(alloc) {
+				_array = new value_type[n];
+				for (int i = 0; i < n; ++i)
+					_array[i] = val;
+			}
+
 			template <class InputIterator>		vector (InputIterator first, InputIterator last, const allocator_type& alloc = allocator_type());
 			void								vector (const vector& x);
 
 			// destructor
-			~vector();
+			~vector() {
+				delete[] this->_array;
+			}
 
 			// begin
 			iterator 							begin();
@@ -114,5 +124,11 @@ namespace ft
 
 			// swap
 			template <class T, class Alloc> void swap (vector<T,Alloc>& x, vector<T,Alloc>& y);
+
+		private:
+			pointer			_array;
+			size_type		_size;
+			size_type		_capacity;
+			allocator_type	_alloc;
 	};
 }
