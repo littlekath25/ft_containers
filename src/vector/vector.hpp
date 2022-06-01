@@ -30,10 +30,20 @@ namespace ft
 					_array[i] = val;
 			}
 			template <class InputIterator> vector (InputIterator first, InputIterator last, const allocator_type& alloc = allocator_type());
-			void vector (const vector& x)
+			void vector (const vector& copy) : _array(0), _size(0), _capacity(0), _alloc(copy.alloc)
 			{
-				delete [] _array;
+				*this = copy;
 			}
+			vector &operator= (const vector &copy)
+			{
+				delete[] _array;
+				_array = new value_type[copy._capacity];
+				_capacity = copy._capacity;
+				_size = copy.size;
+				this->assign(copy.begin(), copy.end());
+				return (*this)
+			}
+
 
 			// destructor
 			~vector() {
@@ -114,7 +124,6 @@ namespace ft
 			// get_allocator
 			allocator_type get_allocator() const;
 
-			vector &operator=(const vector &copy);
 			template <class T, class Alloc> bool operator== (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
 			template <class T, class Alloc> bool operator!= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
 			template <class T, class Alloc> bool operator<  (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
