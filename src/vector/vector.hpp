@@ -36,11 +36,7 @@ namespace ft
 			}
 			vector &operator= (const vector &copy)
 			{
-				delete[] _array;
-				_array = new value_type[copy._capacity];
-				_capacity = copy._capacity;
-				_size = copy.size;
-				this->assign(copy.begin(), copy.end());
+				// TODO assign
 				return (*this)
 			}
 
