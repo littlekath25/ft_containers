@@ -11,13 +11,15 @@ namespace ft
 			// member types
 			typedef T							value_type;
 			typedef Alloc						allocator_type;
-			typedef &value_type					reference;
-			typedef const &value_type			const_reference;
-			typedef *value_type					pointer;
-			typedef const *value_type			const_pointer;
 			typedef size_t						size_type;
 			typedef std::ptrdiff_t 				difference_type;
-			
+
+			typedef T&							reference;
+			typedef const T&					const_reference;
+			typedef T*							pointer;
+			typedef const T*					const_pointer;
+
+			// TODO iterators
 
 			// constructor
 			explicit 							vector (const allocator_type& alloc = allocator_type());
@@ -27,7 +29,7 @@ namespace ft
 
 			// destructor
 			~vector();
-	
+
 			// begin
 			iterator 							begin();
 			const_iterator 						begin() const;
