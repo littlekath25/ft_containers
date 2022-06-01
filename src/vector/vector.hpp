@@ -22,97 +22,97 @@ namespace ft
 			// TODO iterators
 
 			// constructor
-			explicit 							vector (const allocator_type& alloc = allocator_type()) 
-			: _array(0), _size(0), _capacity(0), _alloc(alloc);
-
-			explicit 							vector (size_type n, const value_type& val = value_type(), const allocator_type& alloc = allocator_type()) 
-			: _size(n), _capacity(n), _alloc(alloc) {
+			explicit vector (const allocator_type& alloc = allocator_type()) : _array(0), _size(0), _capacity(0), _alloc(alloc);
+			explicit vector (size_type n, const value_type& val = value_type(), const allocator_type& alloc = allocator_type()) : _size(n), _capacity(n), _alloc(alloc) 
+			{
 				_array = new value_type[n];
 				for (int i = 0; i < n; ++i)
 					_array[i] = val;
 			}
-
-			template <class InputIterator>		vector (InputIterator first, InputIterator last, const allocator_type& alloc = allocator_type());
-			void								vector (const vector& x);
+			template <class InputIterator> vector (InputIterator first, InputIterator last, const allocator_type& alloc = allocator_type());
+			void vector (const vector& x)
+			{
+				delete [] _array;
+			}
 
 			// destructor
 			~vector() {
-				delete[] this->_array;
+				delete[] _array;
 			}
 
 			// begin
-			iterator 							begin();
-			const_iterator 						begin() const;
+			iterator begin();
+			const_iterator begin() const;
 
 			// end
-			iterator 							end();
-			const_iterator 						end() const;
+			iterator end();
+			const_iterator end() const;
 
 			// rbegin
-			reverse_iterator 					rbegin();
-			const_reverse_iterator 				rbegin() const;
+			reverse_iterator rbegin();
+			const_reverse_iterator rbegin() const;
 
 			// rend
-			reverse_iterator 					rend();
-			const_reverse_iterator 				rend() const;
+			reverse_iterator rend();
+			const_reverse_iterator rend() const;
 
 			// size
-			size_type 							size() const;
+			size_type size() const;
 
 			// max_size
-			size_type 							max_size() const;
+			size_type max_size() const;
 
 			// resize
-			void 								resize (size_type n, value_type val = value_type());
+			void resize (size_type n, value_type val = value_type());
 
 			// capacity
-			size_type 							capacity() const;
+			size_type capacity() const;
 
 			// empty
-			bool 								empty() const;
+			bool empty() const;
 
 			// reserve
-			void 								reserve (size_type n);
+			void reserve (size_type n);
 
 			// at
-			reference 							at (size_type n);
-			const_reference 					at (size_type n) const;
+			reference at (size_type n);
+			const_reference at (size_type n) const;
 
 			// front
-			reference 							front();
-			const_reference 					front() const;
+			reference front();
+			const_reference front() const;
 
 			// back
-			reference 							back();
-			const_reference 					back() const;
+			reference back();
+			const_reference back() const;
 
 			// assign
-			template <class InputIterator> void	assign (InputIterator first, InputIterator last);	
-			void 								assign (size_type n, const value_type& val);
+			template <class InputIterator> void assign (InputIterator first, InputIterator last);	
+			void assign (size_type n, const value_type& val);
 
 			// push_back
-			void 								push_back (const value_type& val);
+			void push_back (const value_type& val);
 
 			// pop_back
-			void 								pop_back();
+			void pop_back();
 
 			// insert
-			iterator 							insert (iterator position, const value_type& val);
-			void 								insert (iterator position, size_type n, const value_type& val);
+			iterator insert (iterator position, const value_type& val);
+			void insert (iterator position, size_type n, const value_type& val);
 			template <class InputIterator> void insert (iterator position, InputIterator first, InputIterator last);
 
 			// erase
-			iterator 							erase (iterator position);
-			iterator 							erase (iterator first, iterator last);
+			iterator erase (iterator position);
+			iterator erase (iterator first, iterator last);
 
 			// swap
-			void 								swap (vector& x);
+			void swap (vector& x);
 
 			// clear
-			void 								clear();
+			void clear();
 			
 			// get_allocator
-			allocator_type 						get_allocator() const;
+			allocator_type get_allocator() const;
 
 			vector &operator=(const vector &copy);
 			template <class T, class Alloc> bool operator== (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
@@ -126,9 +126,9 @@ namespace ft
 			template <class T, class Alloc> void swap (vector<T,Alloc>& x, vector<T,Alloc>& y);
 
 		private:
-			pointer			_array;
-			size_type		_size;
-			size_type		_capacity;
-			allocator_type	_alloc;
+			pointer				_array;
+			size_type			_size;
+			size_type			_capacity;
+			allocator_type		_alloc;
 	};
 }
