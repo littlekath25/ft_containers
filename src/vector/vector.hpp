@@ -40,7 +40,6 @@ namespace ft
 				return (*this)
 			}
 
-
 			// destructor
 			~vector() {
 				delete[] _array;
