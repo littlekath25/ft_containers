@@ -36,6 +36,7 @@ namespace ft
 			}
 			vector &operator= (const vector &copy)
 			{
+				_size = copy._size;
 				// TODO assign
 				return (*this)
 			}
