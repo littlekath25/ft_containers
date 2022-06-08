@@ -23,17 +23,21 @@ namespace ft
 
 			// constructor
 			explicit vector (const allocator_type& alloc = allocator_type()) : _array(0), _size(0), _capacity(0), _alloc(alloc);
+	
 			explicit vector (size_type n, const value_type& val = value_type(), const allocator_type& alloc = allocator_type()) : _size(n), _capacity(n), _alloc(alloc) 
 			{
-				_array = new value_type[n];
+				_array = _alloc.allocate(n);
 				for (int i = 0; i < n; ++i)
 					_array[i] = val;
 			}
+
 			template <class InputIterator> vector (InputIterator first, InputIterator last, const allocator_type& alloc = allocator_type());
+
 			void vector (const vector& copy) : _array(0), _size(0), _capacity(0), _alloc(copy.alloc)
 			{
 				*this = copy;
 			}
+
 			vector &operator= (const vector &copy)
 			{
 				_size = copy._size;
@@ -43,7 +47,8 @@ namespace ft
 
 			// destructor
 			~vector() {
-				delete[] _array;
+				if (_capacity != 0)
+					_alloc.deallocate(_array, _capacity);
 			}
 
 			// begin
