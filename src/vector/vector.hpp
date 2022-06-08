@@ -41,7 +41,9 @@ namespace ft
 			vector &operator= (const vector &copy)
 			{
 				_size = copy._size;
-				// TODO assign
+				_capacity = copy._capacity;
+				_alloc = copy._alloc;
+				_array = _alloc.allocate(_capacity);
 				return (*this)
 			}
 
@@ -80,7 +82,10 @@ namespace ft
 			size_type capacity() const;
 
 			// empty
-			bool empty() const;
+			bool empty() const
+			{
+				return (_size == 0);
+			}
 
 			// reserve
 			void reserve (size_type n);
@@ -98,14 +103,28 @@ namespace ft
 			const_reference back() const;
 
 			// assign
-			template <class InputIterator> void assign (InputIterator first, InputIterator last);	
+			template <class InputIterator> void assign (InputIterator first, InputIterator last);
 			void assign (size_type n, const value_type& val);
 
 			// push_back
-			void push_back (const value_type& val);
+			void push_back (const value_type& val)
+			{
+				if (_size == _capacity)
+				{
+					
+				}
+				_size++;
+			}
 
 			// pop_back
-			void pop_back();
+			void pop_back()
+			{
+				if (_size)
+				{
+					_alloc.destroy(_array + _size - 1);
+					_size--;
+				}
+			}
 
 			// insert
 			iterator insert (iterator position, const value_type& val);
@@ -120,7 +139,11 @@ namespace ft
 			void swap (vector& x);
 
 			// clear
-			void clear();
+			void clear()
+			{
+				while (!empty())
+					pop_back();
+			}
 			
 			// get_allocator
 			allocator_type get_allocator() const;
