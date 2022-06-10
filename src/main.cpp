@@ -115,7 +115,7 @@
 // 	return (0);
 // }
 
-// #include "utils/pair.hpp"
+#include "utils/pair.hpp"
 #include <utility>
 #include <iostream>
 
@@ -123,12 +123,15 @@ int	main(int argc, char **argv)
 {
 	if (argc && *argv)
 	{
-		std::pair<int, int> myPair;
+		ft::pair<int, char> foo (10,'z');
+		ft::pair<int, char> bar (90,'a');
 
-		myPair.first = 10;
-		myPair.second = 11;
-
-		std::cout << "THE FIRST: " << myPair.first << " AND SECOND: " << myPair.second << std::endl;
+		if (foo==bar) std::cout << "foo and bar are equal\n";
+		if (foo!=bar) std::cout << "foo and bar are not equal\n";
+		if (foo< bar) std::cout << "foo is less than bar\n";
+		if (foo> bar) std::cout << "foo is greater than bar\n";
+		if (foo<=bar) std::cout << "foo is less than or equal to bar\n";
+		if (foo>=bar) std::cout << "foo is greater than or equal to bar\n";
 	}
 	return (0);
 }
