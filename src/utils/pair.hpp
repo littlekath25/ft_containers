@@ -16,7 +16,7 @@ namespace ft
                 first();
                 second();
             }
-            
+
             template <class U, class V> 
             pair (const pair<U, V>& pr) : first(pr.first), second(pr.second) {};
 
@@ -67,8 +67,8 @@ namespace ft
     }
 
     template <class T1, class T2> 
-    pair <T1, T2> make_pair (T1 x, T2 y)
+    ft::pair <T1, T2> make_pair (T1 x, T2 y)
     {
-        pair<T1, T2>(x, y);
+        ft::pair<T1, T2>(x, y);
     }
 }
