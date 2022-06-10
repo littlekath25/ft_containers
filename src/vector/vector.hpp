@@ -33,17 +33,13 @@ namespace ft
 
 			template <class InputIterator> vector (InputIterator first, InputIterator last, const allocator_type& alloc = allocator_type());
 
-			void vector (const vector& copy) : _array(0), _size(0), _capacity(0), _alloc(copy.alloc)
+			void vector (const vector& x)
 			{
-				*this = copy;
+				*this = x;
 			}
 
-			vector &operator= (const vector &copy)
+			vector &operator= (const vector &x)
 			{
-				_size = copy._size;
-				_capacity = copy._capacity;
-				_alloc = copy._alloc;
-				_array = _alloc.allocate(_capacity);
 				return (*this)
 			}
 
@@ -148,12 +144,23 @@ namespace ft
 			// get_allocator
 			allocator_type get_allocator() const;
 
-			template <class T, class Alloc> bool operator== (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
-			template <class T, class Alloc> bool operator!= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
-			template <class T, class Alloc> bool operator<  (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
-			template <class T, class Alloc> bool operator<= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
-			template <class T, class Alloc> bool operator>  (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
-			template <class T, class Alloc> bool operator>= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
+			template <class T, class Alloc> 
+			bool operator== (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs)
+
+			template <class T, class Alloc> 
+			bool operator!= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
+	
+			template <class T, class Alloc> 
+			bool operator<  (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
+
+			template <class T, class Alloc> 
+			bool operator<= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
+
+			template <class T, class Alloc> 
+			bool operator>  (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
+
+			template <class T, class Alloc> 
+			bool operator>= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
 
 			// swap
 			template <class T, class Alloc> void swap (vector<T,Alloc>& x, vector<T,Alloc>& y);
