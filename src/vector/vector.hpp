@@ -22,8 +22,8 @@ namespace ft
 			// TODO iterators
 
 			// constructor
-			explicit vector (const allocator_type& alloc = allocator_type()) : _array(0), _size(0), _capacity(0), _alloc(alloc);
-	
+			explicit vector (const allocator_type& alloc = allocator_type()) : _array(NULL), _size(0), _capacity(0), _alloc(alloc);
+
 			explicit vector (size_type n, const value_type& val = value_type(), const allocator_type& alloc = allocator_type()) : _size(n), _capacity(n), _alloc(alloc) 
 			{
 				_array = _alloc.allocate(n);
@@ -40,13 +40,17 @@ namespace ft
 
 			vector &operator= (const vector &x)
 			{
+				// TODO assignation
 				return (*this)
 			}
 
 			// destructor
 			~vector() {
 				if (_capacity != 0)
+				{
+					clear();
 					_alloc.deallocate(_array, _capacity);
+				}
 			}
 
 			// begin
@@ -107,7 +111,7 @@ namespace ft
 			{
 				if (_size == _capacity)
 				{
-					
+					// TODO dynamic allocate
 				}
 				_size++;
 			}
@@ -117,7 +121,7 @@ namespace ft
 			{
 				if (_size)
 				{
-					_alloc.destroy(_array + _size - 1);
+					_alloc.destroy(&back());
 					_size--;
 				}
 			}
@@ -145,25 +149,25 @@ namespace ft
 			allocator_type get_allocator() const;
 
 			template <class T, class Alloc> 
-			bool operator== (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs)
+			bool operator== (const vector<T, Alloc>& lhs, const vector<T, Alloc>& rhs);
 
 			template <class T, class Alloc> 
-			bool operator!= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
+			bool operator!= (const vector<T, Alloc>& lhs, const vector<T, Alloc>& rhs);
 	
 			template <class T, class Alloc> 
-			bool operator<  (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
+			bool operator<  (const vector<T, Alloc>& lhs, const vector<T, Alloc>& rhs);
 
 			template <class T, class Alloc> 
-			bool operator<= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
+			bool operator<= (const vector<T, Alloc>& lhs, const vector<T, Alloc>& rhs);
 
 			template <class T, class Alloc> 
-			bool operator>  (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
+			bool operator>  (const vector<T, Alloc>& lhs, const vector<T, Alloc>& rhs);
 
 			template <class T, class Alloc> 
-			bool operator>= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
+			bool operator>= (const vector<T, Alloc>& lhs, const vector<T, Alloc>& rhs);
 
 			// swap
-			template <class T, class Alloc> void swap (vector<T,Alloc>& x, vector<T,Alloc>& y);
+			template <class T, class Alloc> void swap (vector<T,Alloc>& x, vector<T, Alloc>& y);
 
 		private:
 			pointer				_array;
