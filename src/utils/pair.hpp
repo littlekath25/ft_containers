@@ -5,12 +5,15 @@ namespace ft
     template <class T1, class T2> struct pair
     {
         public:
+            // member types
             typedef T1  first_type;
             typedef T2  second_type;
 
+            // member objects
             first_type  first;
             second_type second;
 
+            // member functions
             pair()
             {
                 first();
@@ -66,9 +69,9 @@ namespace ft
         return (!(lhs < rhs));
     }
 
-    template <class T1, class T2> 
-    ft::pair <T1, T2> make_pair (T1 x, T2 y)
+    template <class T1, class T2>
+    pair <T1, T2> make_pair (T1 x, T2 y)
     {
-        ft::pair<T1, T2>(x, y);
+        return (pair<T1, T2>(x, y));
     }
 }

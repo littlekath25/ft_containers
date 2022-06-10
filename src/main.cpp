@@ -124,7 +124,7 @@ int	main(int argc, char **argv)
 	if (argc && *argv)
 	{
 		ft::pair<int, char> foo (10,'z');
-		ft::pair<int, char> bar (90,'a');
+		ft::pair<int, char> bar = ft::make_pair(90, 'a');
 
 		if (foo==bar) std::cout << "foo and bar are equal\n";
 		if (foo!=bar) std::cout << "foo and bar are not equal\n";
