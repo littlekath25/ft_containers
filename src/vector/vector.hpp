@@ -31,7 +31,8 @@ namespace ft
 					_array[i] = val;
 			}
 
-			template <class InputIterator> vector (InputIterator first, InputIterator last, const allocator_type& alloc = allocator_type());
+			template <class InputIterator> 
+			vector (InputIterator first, InputIterator last, const allocator_type& alloc = allocator_type());
 
 			void vector (const vector& x)
 			{
@@ -103,7 +104,9 @@ namespace ft
 			const_reference back() const;
 
 			// assign
-			template <class InputIterator> void assign (InputIterator first, InputIterator last);
+			template <class InputIterator> 
+			void assign (InputIterator first, InputIterator last);
+
 			void assign (size_type n, const value_type& val);
 
 			// push_back
@@ -128,8 +131,11 @@ namespace ft
 
 			// insert
 			iterator insert (iterator position, const value_type& val);
+
 			void insert (iterator position, size_type n, const value_type& val);
-			template <class InputIterator> void insert (iterator position, InputIterator first, InputIterator last);
+
+			template <class InputIterator> 
+			void insert (iterator position, InputIterator first, InputIterator last);
 
 			// erase
 			iterator erase (iterator position);
