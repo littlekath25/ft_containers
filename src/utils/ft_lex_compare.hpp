@@ -5,9 +5,6 @@ namespace ft
     template <bool Cond, class T = void>
     struct enable_if;
 
-    template <class T>
-    struct is_integral;
-
     template <class InputIterator1, class InputIterator2>
     bool equal (InputIterator1 first1, InputIterator1 last1, InputIterator2 first2);
 
