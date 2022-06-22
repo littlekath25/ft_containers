@@ -2,7 +2,7 @@ NAME		= 	containers
 CC			= 	clang++
 RM			=		rm -f
 
-SRC			=		tests/tests.cpp
+SRC			=		src/main.cpp
 OBJ			=		$(SRC:%.cpp=%.o)
 FLAGS		=		-std=c++11 -pedantic
 LIBS		=		-o
