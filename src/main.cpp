@@ -127,13 +127,13 @@ int	main(int argc, char **argv)
 		ft::pair<int, char> bar = ft::make_pair(90, 'a');
 		ft::pair<int, char> hello (foo);
 
-		if (foo==bar) std::cout << "foo and bar are equal\n";
-		if (foo==hello) std::cout << "foo and hello are equal\n";
-		if (foo!=bar) std::cout << "foo and bar are not equal\n";
-		if (foo< bar) std::cout << "foo is less than bar\n";
-		if (foo> bar) std::cout << "foo is greater than bar\n";
-		if (foo<=bar) std::cout << "foo is less than or equal to bar\n";
-		if (foo>=bar) std::cout << "foo is greater than or equal to bar\n";
+		if (foo == bar) std::cout << "foo and bar are equal\n";
+		if (foo == hello) std::cout << "foo and hello are equal\n";
+		if (foo != bar) std::cout << "foo and bar are not equal\n";
+		if (foo < bar) std::cout << "foo is less than bar\n";
+		if (foo > bar) std::cout << "foo is greater than bar\n";
+		if (foo <= bar) std::cout << "foo is less than or equal to bar\n";
+		if (foo >= bar) std::cout << "foo is greater than or equal to bar\n";
 	}
 	return (0);
 }
