@@ -1,11 +1,11 @@
 NAME		= 	containers
 CC			= 	clang++
-RM			=	rm -f
+RM			=		rm -f
 
-SRC			= 	src/main.cpp
-OBJ			= 	$(SRC:%.cpp=%.o)
-FLAGS		=	-Wall -Wextra -Werror -std=c++98 -pedantic
-LIBS		=	-o
+SRC			=		tests/tests.cpp
+OBJ			=		$(SRC:%.cpp=%.o)
+FLAGS		=		-std=c++11 -pedantic
+LIBS		=		-o
 
 all: $(NAME)
 
@@ -13,7 +13,7 @@ $(NAME): $(OBJ)
 	$(CC) $(OBJ) $(LIBS) $(NAME)
 
 %.o: %.cpp
-	$(CC) $(FLAGS) -c $(LIBS) $@ $< -I inc
+	$(CC) $(FLAGS) -c $(LIBS) $@ $< -I catch2
 
 clean:
 	$(RM) $(OBJ) $(CREATIONS)
