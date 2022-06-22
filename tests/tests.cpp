@@ -2,8 +2,11 @@
 #include "catch.hpp"
 #include "../src/utils/ft_pair.hpp"
 #include "../src/utils/ft_type_traits.hpp"
+#include <map>
+#include <vector>
+#include <stack>
 
-using namespace ft;
+using namespace std;
 
 TEST_CASE( "Pairs", "[pairs]" ) {
     pair<int, char> pair1 (10, 20);
@@ -37,5 +40,10 @@ TEST_CASE( "Integral", "[integral]" ) {
     REQUIRE( is_integral<unsigned int>::value);
     REQUIRE( is_integral<unsigned long int>::value);
     REQUIRE( is_integral<unsigned long long int>::value);
+
+    REQUIRE( is_integral<std::string>::value == false);
+    REQUIRE( is_integral<float>::value == false);
+    REQUIRE( is_integral<double>::value == false);
+    REQUIRE( is_integral<long double>::value == false);
 }
 
