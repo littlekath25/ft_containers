@@ -1,6 +1,7 @@
 #define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
 #include "catch.hpp"
 #include "../src/utils/ft_pair.hpp"
+#include "../src/utils/ft_type_traits.hpp"
 
 using namespace ft;
 
@@ -19,3 +20,22 @@ TEST_CASE( "Pairs", "[pairs]" ) {
     REQUIRE( pair6 >= pair5 );
     REQUIRE( pair6 > pair5 );
 }
+
+TEST_CASE( "Integral", "[integral]" ) {
+    REQUIRE( is_integral<bool>::value);
+    REQUIRE( is_integral<char>::value);
+    REQUIRE( is_integral<char16_t>::value);
+    REQUIRE( is_integral<char32_t>::value);
+    REQUIRE( is_integral<wchar_t>::value);
+    REQUIRE( is_integral<signed char>::value);
+    REQUIRE( is_integral<short int>::value);
+    REQUIRE( is_integral<int>::value);
+    REQUIRE( is_integral<long int>::value);
+    REQUIRE( is_integral<long long int>::value);
+    REQUIRE( is_integral<unsigned char>::value);
+    REQUIRE( is_integral<unsigned short int>::value);
+    REQUIRE( is_integral<unsigned int>::value);
+    REQUIRE( is_integral<unsigned long int>::value);
+    REQUIRE( is_integral<unsigned long long int>::value);
+}
+
